@@ -11,14 +11,14 @@ env:
   TF_STATE_BUCKET_NAME: ${{ secrets.TF_STATE_BUCKET_NAME }}
   PRIVATE_SSH_KEY: ${{ secrets.PRIVATE_SSH_KEY }}
   PUBLIC_SSH_KEY: ${{ secrets.PUBLIC_SSH_KEY }}
-  REGION: ap-northeast-1
+  REGION: ap-northeast-1  
 
 jobs:
-  deploy-infra:
-    runs-on: ubuntu-latest
+  deploy-infra:  
+    runs-on: ubuntu-latest  
 
     steps:
-      - name: Checkout
+      - name: Checkout Code
         uses: actions/checkout@v2
 
       - name: Setup Terraform
