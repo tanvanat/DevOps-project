@@ -36,6 +36,7 @@ jobs:
         -var="key_name=deployer-key" \
         -out=PLAN
       working-directory: ./terraform
+      
     - name: Terraform Apply
       id: applu
       run: terraform apply PLAN
