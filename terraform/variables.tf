@@ -14,9 +14,22 @@ variable "private_key" {
 }
 
 
-
 variable "key_name" {
   type        = string
   description = "Name of the SSH key pair"
+}
+
+variable "AWS_ACCESS_KEY_ID" {
+  type      = string
+  sensitive = true
+}
+
+variable "AWS_SECRET_ACCESS_KEY" {
+  type      = string
+  sensitive = true
+}
+
+variable "TF_STATE_BUCKET_NAME" {
+  type = string
 }
 
