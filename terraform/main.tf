@@ -8,7 +8,6 @@ terraform{
     backend "s3" {
     bucket         = "aws-t-test"               
     key            = "terraform/state.tfstate"  
-    
     region         = "ap-northeast-1"           
     encrypt        = true    
     dynamodb_table = "terraform-locks"  # Critical for locking            
