@@ -5,17 +5,22 @@ terraform{
             version = "~> 4.0"
         }
     }
-    backend "s3"{
-        key = "aws/ec2-deploy/terraform.tfstate"
-    }
+    backend "s3" {
+    bucket         = "aws-t-test"               
+    key            = "terraform/state.tfstate"  
+    
+    region         = "ap-northeast-1"           
+    encrypt        = true    
+    dynamodb_table = "terraform-locks"  # Critical for locking            
+  }
 }
 
 provider "aws" {
-    region = "var.region"
+    region = "ap-northeast-1"
 }
 
 resource "aws_instance" "server"{
-    ami = "ami-09e143e99e8fa74f9"
+    ami = "ami-0dc842020ce781bc9" #ami-077e6af23daa7a15a,0dc842020ce781bc9
     instance_type = "t2.micro"
     key_name = aws_key_pair.deployer.key_name
     vpc_security_group_ids = [aws_security_group.maingroup.id]
